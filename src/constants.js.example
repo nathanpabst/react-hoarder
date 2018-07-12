@@ -5,7 +5,7 @@ const constants = {
     databaseURL: '',
     projectId: '',
     storageBucket: '',
-    messagingSenderId: ''
+    messagingSenderId: '',
   },
 };
 
