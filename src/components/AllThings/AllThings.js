@@ -1,6 +1,6 @@
 import React from 'react';
 
-import stuffRequests from '../../firebaseRequests/allThings';
+import stuffRequests from '../../firebaseRequests/stuff';
 import Item from '../Item/Item';
 
 import './AllThings.css';
