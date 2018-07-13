@@ -1,7 +1,7 @@
 import axios from 'axios';
 import constants from '../constants';
 
-const getRequest = (uid) => {
+const getMyStuff = (uid) => {
   return new Promise((resolve, reject) => {
     axios
       .get(`${constants.firebaseConfig.databaseURL}/myStuff.json?orderBy="uid"&equalTo="${uid}"`)
@@ -21,4 +21,4 @@ const getRequest = (uid) => {
   });
 };
 
-export default { getRequest };
+export default { getMyStuff };

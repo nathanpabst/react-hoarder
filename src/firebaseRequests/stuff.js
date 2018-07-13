@@ -1,6 +1,19 @@
 import axios from 'axios';
 import constants from '../constants';
 
+const postRequest = (newItem) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${constants.firebaseConfig.databaseURL}/allThings.json`, newItem)
+      .then((res) => {
+        resolve(res);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
 const getRequest = () => {
   return new Promise((resolve, reject) => {
     axios
@@ -21,4 +34,4 @@ const getRequest = () => {
   });
 };
 
-export default { getRequest };
+export default { getRequest, postRequest };
