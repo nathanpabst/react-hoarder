@@ -11,18 +11,16 @@ class Item extends React.Component {
     const { details } = this.props;
 
     return (
-      <li className="Item col-sm-6">
-        <img className="img" src={details.itemImage} alt={details.itemName}/>
-        <h3 className="name">
-          {details.itemName}
-        </h3>
-        <p>{details.itemDescription}</p>
-        <button
-          onClick={this.addClickEvent}
-        >
-          Add To My Stuff
-        </button>
-      </li>
+      <div className="card col-sm-4">
+        <img className="card-img-top img" src={details.itemImage} alt="item"/>
+        <div className="card-body">
+          <h3 className="card-title">{details.itemName}</h3>
+          <p className="card-text">{details.itemDescription}</p>
+        </div>
+        <div>
+          <button className="btn btn-primary" onClick={this.addToMyStuff}>Add</button>
+        </div>
+      </div>
     );
   }
 }

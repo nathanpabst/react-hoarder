@@ -9,6 +9,7 @@ class AllThings extends React.Component {
   state = {
     stuff: [],
   }
+
   componentDidMount () {
     stuffRequests
       .getRequest()
