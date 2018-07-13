@@ -8,8 +8,9 @@ import Navbar from '../components/Navbar/Navbar';
 import Login from '../components/Login/Login';
 import Register from '../components/Register/Register';
 import Home from '../components/Home/Home';
-import AllTheThings from '../components/AllTheThings/AllThings';
+import AllThings from '../components/AllThings/AllThings';
 import MyThings from '../components/MyThings/MyThings';
+// import Item from '../components/Item/Item';
 import fbConnection from '../firebaseRequests/connection';
 fbConnection();
 
@@ -22,7 +23,7 @@ const PrivateRoute = ({ component: Component, authed, ...rest}) => {
           <Component {...props} />
         ) : (
           <Redirect
-            to={{ pathname: '/login', state: {from: props.location}}}
+            to={{ pathname: '/myThings', state: {from: props.location}}}
           />
         )
       }
@@ -39,7 +40,7 @@ const PublicRoute = ({ component: Component, authed, ...rest}) => {
           <Component {...props} />
         ) : (
           <Redirect
-            to={{ pathname: '/orders', state: {from: props.location}}}
+            to={{ pathname: '/myThings', state: {from: props.location}}}
           />
         )
       }
@@ -84,7 +85,7 @@ class App extends React.Component {
                 <Switch>
                   <Route path="/" exact component={Home}/>
                   <PrivateRoute
-                    path="/myStuff/:id"
+                    path="/myThings/:id"
                     authed={this.state.authed}
                     component={MyThings}
                   />
@@ -100,9 +101,9 @@ class App extends React.Component {
                   />
 
                   <PrivateRoute
-                    path="/allTheThings"
+                    path="/allThings"
                     authed={this.state.authed}
-                    component={AllTheThings}
+                    component={AllThings}
                   />
                 </Switch>
               </div>
