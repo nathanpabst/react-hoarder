@@ -11,8 +11,8 @@ class Item extends React.Component {
     const { details } = this.props;
 
     return (
-      <li className="Item">
-        <img src={details.itemImage} alt={details.itemName}/>
+      <li className="Item col-sm-6">
+        <img className="img" src={details.itemImage} alt={details.itemName}/>
         <h3 className="name">
           {details.itemName}
         </h3>
