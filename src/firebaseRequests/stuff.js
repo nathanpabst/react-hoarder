@@ -4,7 +4,7 @@ import constants from '../constants';
 const postRequest = (newItem) => {
   return new Promise((resolve, reject) => {
     axios
-      .post(`${constants.firebaseConfig.databaseURL}/allThings.json`, newItem)
+      .post(`${constants.firebaseConfig.databaseURL}/myThings.json`, newItem)
       .then((res) => {
         resolve(res);
       })
