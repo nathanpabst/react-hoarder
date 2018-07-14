@@ -9,6 +9,17 @@ class AllThings extends React.Component {
   state = {
     stuff: [],
   }
+  addItem = (item) => {
+    stuffRequests
+      .postRequest(item)
+      .then(res => {
+        this.props.history.push('myThings');
+      })
+      .catch ((err) => {
+        console.error('error adding item', err);
+      });
+  }
+
   componentDidMount () {
     stuffRequests
       .getRequest()
@@ -26,6 +37,7 @@ class AllThings extends React.Component {
         <Item
           key={item.id}
           details={item}
+          postRequest={this.addItem}
         />
       );
     });

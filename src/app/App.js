@@ -10,7 +10,8 @@ import Register from '../components/Register/Register';
 import Home from '../components/Home/Home';
 import AllThings from '../components/AllThings/AllThings';
 import MyThings from '../components/MyThings/MyThings';
-// import Item from '../components/Item/Item';
+import Item from '../components/Item/Item';
+import SingleItem from '../components/SingleItem/SingleItem';
 import fbConnection from '../firebaseRequests/connection';
 fbConnection();
 
@@ -85,9 +86,14 @@ class App extends React.Component {
                 <Switch>
                   <Route path="/" exact component={Home}/>
                   <PrivateRoute
-                    path="/myThings/:id"
+                    path="/myThings"
                     authed={this.state.authed}
                     component={MyThings}
+                  />
+                  <PrivateRoute
+                    path="/item/:id"
+                    authed={this.state.authed}
+                    component={Item}
                   />
                   <PublicRoute
                     path="/register"
@@ -104,6 +110,11 @@ class App extends React.Component {
                     path="/allThings"
                     authed={this.state.authed}
                     component={AllThings}
+                  />
+                  <PrivateRoute
+                    path="/singleItem"
+                    authed={this.state.authed}
+                    component={SingleItem}
                   />
                 </Switch>
               </div>
