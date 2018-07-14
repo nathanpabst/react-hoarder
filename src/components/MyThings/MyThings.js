@@ -9,8 +9,7 @@ import './MyThings.css';
 class MyThings extends React.Component {
   state = {
     myStuff: [],
-  };
-
+  }
   componentDidMount () {
     stuffRequests
       .getMyStuff(authRequests.getUid())
@@ -24,17 +23,26 @@ class MyThings extends React.Component {
 
   render () {
     const itemComponents = this.state.myStuff.map((item) => {
+      // const deleteClickEvent = () => {
+      // this.props.history.push(`/myThings/${item.id}`);
+      // };
       return (
         <Item
           key={item.id}
           details={item}
-          addItem={this.addItem}
+          postRequest={this.addItem}
         />
+        // <button
+        //   key={item.id}
+        //   className="col-xs-12 btn btn-default delete-btn"
+        //   // onClick={deleteClickEvent}
+        // >
+        // </button>
       );
     });
     return (
       <div className="myThings col-xs-12">
-        <h1>My Things</h1>
+        <h2>My Things</h2>
         <ul className="myStuff">
           {itemComponents}
         </ul>

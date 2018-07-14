@@ -37,7 +37,7 @@ class AllThings extends React.Component {
         <Item
           key={item.id}
           details={item}
-          post={this.addItem}
+          postRequest={this.addItem}
         />
       );
     });
